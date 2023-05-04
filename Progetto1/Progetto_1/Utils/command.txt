@@ -1,6 +1,6 @@
-$HADOOP_HOME/bin/hdfs dfs -put /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1/output1/output1.txt /root/prog1/job1/output1/output1.txt
-chmod a+x /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1/mapper2.py
-chmod a+x /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1/reducer2.py
-$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar -mapper /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1/mapper2.py -reducer /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1/reducer2.py -input /root/prog1/job1/output1/output1.txt -output /root/prog1/job1/output2
+$HADOOP_HOME/bin/hdfs dfs -put /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/output1/output1.txt /root/prog1/job1/output1/output1.txt
+chmod a+x /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/mapper2.py
+chmod a+x /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/reducer2.py
+$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar -mapper /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/mapper2.py -reducer /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/reducer2.py -input /root/prog1/job1/output1/output1.txt -output /root/prog1/job1/output2
 $HADOOP_HOME/bin/hdfs dfs -get /root/prog1/job1/output2 /home/matteowissel/Universita/Bigdata/Progetto1/Progetto_1/Job1
 $HADOOP_HOME/bin/hdfs dfs -rm -r  /root/prog1/job1/output2

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import json
 
-path_input="Utils/input_paths.json"
+path_input="Progetto1/Progetto_1/Utils/input_paths.json"
 
 base_commands={
     "putLoc2Hdfs":"$HADOOP_HOME/bin/hdfs dfs -put ",
