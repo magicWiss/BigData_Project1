@@ -1,14 +1,18 @@
-Un job che sia in grado di generare una lista di utenti ordinata sulla base del loro apprezzamento, dove
-l’apprezzamento di ogni utente è ottenuto dalla media dell’utilità (rapporto tra HelpfulnessNumerator
-e HelpfulnessDenominator) delle recensioni che hanno scritto, indicando per ogni utente il loro
-apprezzamento.
+Un job che sia in grado di generare, per ciascun anno, i 10 prodotti che hanno ricevuto il maggior numero di recensioni e, per ciascuno di essi, le 5 parole con almeno 4 caratteri più frequentemente usate nelle recensioni (campo text), indicando, per ogni parola, il numero di occorrenze della parola.
 
-LOGICA
-#Primo job
-## Mapper
-    il mapper genera per ogni entry un tripla (userId,value)
-##S&S
-    lo shuffle and sort aggrega su userId
-#REDUCER
-    il reducer calcola la media dei value e ordina stampando al terminale
-
+$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar \
+-mapper codes/mapper.py \
+-reducer codes/reducer.py \
+-input /prog1/Dataset/Rev_Parsed.csv \
+-output /prog1/job2/output/mr1 \
+| \
+hdfs dfs -cat /prog1/job2/output/mr1/* > output.txt \
+| \
+hdfs dfs -put output.txt > /prog1/job2/output/mr1/output.txt \
+| \
+$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar \
+-reducer codes/reducer2.py \
+-input /prog1/Dataset/Rev_Parsed.csv \
+-output /prog1/job2/output/mr2 \
+-mapper codes/mapper2.py \
+--cacheFile '/prog1/job2/output/mr1/output.txt#output'

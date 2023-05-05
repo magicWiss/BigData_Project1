@@ -1,48 +1,29 @@
 #!/usr/bin/env python3
-
+"""reducer.py"""
 import sys
-import ast
-user_to_value={}
-path_out_reducer='Job1/output_reducer.txt'
 
-    
+product_2_count = {}
+
 for line in sys.stdin:
 
-        line=line.strip()
-        
-        values=line.split('\t')
-        if len(values)==2:
+    line = line.strip()
 
-            user_id=values[0]
-            utility_str=values[1]
-        
-        
+    current_product, one = line.split("\t")
 
-        
-            val=0
-            try:
-                    val=float(utility_str)
-                    
+    try:
+        one = int(one)
+    except ValueError:
+        # count was not a number, so
+        # silently ignore/discard this line
+        continue
 
-            except ValueError:
-                    continue
-                    
-            
-            if user_id not in user_to_value:
-                user_to_value[user_id]=[]
+    # initialize words that were not seen before with 0
+    if current_product not in product_2_count:
+        product_2_count[current_product] = 0
 
-            user_to_value[user_id].append(val)
+    product_2_count[current_product] += 1
 
-    
+sorted_product_2_count = dict(sorted(product_2_count.items(),key=lambda x: x[1],reverse=True)[:10])
 
-    
-for k in user_to_value:
-        somma=sum(user_to_value[k])
-        N=len(user_to_value[k])
-        mean_utility=somma/N
-        print("%s\t%s" %(k,str(mean_utility)))
-
-
-
-
-
+for product in sorted_product_2_count:
+    print("%s\t%i" % (product, product_2_count[product]))

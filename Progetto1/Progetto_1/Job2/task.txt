@@ -1,0 +1,14 @@
+Un job che sia in grado di generare una lista di utenti ordinata sulla base del loro apprezzamento, dove
+l’apprezzamento di ogni utente è ottenuto dalla media dell’utilità (rapporto tra HelpfulnessNumerator
+e HelpfulnessDenominator) delle recensioni che hanno scritto, indicando per ogni utente il loro
+apprezzamento.
+
+LOGICA
+#Job 2
+## Mapper
+    il mapper genera per ogni entry un tripla (userId,value)
+##S&S
+    lo shuffle and sort aggrega su userId
+#REDUCER
+    il reducer calcola la media dei value e ordina stampando al terminale
+

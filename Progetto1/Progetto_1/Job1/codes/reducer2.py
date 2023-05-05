@@ -1,41 +1,29 @@
 #!/usr/bin/env python3
-
+"""reducer2.py"""
 import sys
-import ast
-user_to_value={}
-path_out_reducer='Job1/output_reducer.txt'
 
-    
+word_2_count = {}
+i=0
 for line in sys.stdin:
 
-        line=line.strip()
-        
-        values=line.split('\t')
-
-        
-  
-        if len(values)==2:
-            user_id=values[0]
-            mean_utility=values[1]   
-
-            try:
-                    val=float(mean_utility)
-                    
-
-            except ValueError:
-                    continue
-                    
-            
-            if user_id not in user_to_value:
-                user_to_value[user_id]=0
-
-            user_to_value[user_id]=val
-
-user_to_value=dict(sorted(user_to_value.items(),key=lambda x: x[1],reverse=True))
-
+    line = line.strip()
     
-for k in user_to_value.keys():
-        
-        print("%s\t%s" %(k,str(user_to_value[k])))
+    current_word, one = line.split("\t")
 
+    try:
+        one = int(one)
+    except ValueError:
+        # count was not a number, so
+        # silently ignore/discard this line
+        continue
 
+    # initialize words that were not seen before with 0
+    if current_word not in word_2_count:
+        word_2_count[current_word] = 0
+
+    word_2_count[current_word] += 1
+
+sorted_word_2_count = dict(sorted(word_2_count.items(),key=lambda x: x[1],reverse=True)[:10])
+
+for word in sorted_word_2_count:
+    print("%s\t%i" % (word, word_2_count[word]))
