@@ -2,28 +2,24 @@
 """reducer.py"""
 import sys
 
-product_2_count = {}
+productyear_2_count = {}
+years = []
 
 for line in sys.stdin:
 
     line = line.strip()
 
-    current_product, one = line.split("\t")
+    current_year, current_product = line.split("\t")
 
-    try:
-        one = int(one)
-    except ValueError:
-        # count was not a number, so
-        # silently ignore/discard this line
-        continue
+    years.append(current_year)
 
-    # initialize words that were not seen before with 0
-    if current_product not in product_2_count:
-        product_2_count[current_product] = 0
+    if (current_product, current_year) not in productyear_2_count:
+        productyear_2_count[(current_product, current_year)] = 0
 
-    product_2_count[current_product] += 1
+    productyear_2_count[(current_product, current_year)] += 1
 
-sorted_product_2_count = dict(sorted(product_2_count.items(),key=lambda x: x[1],reverse=True)[:10])
-
-for product in sorted_product_2_count:
-    print("%s\t%i" % (product, product_2_count[product]))
+for year in set(key[1] for key in productyear_2_count.keys()):
+    product_2_year = {k[0]: v for k, v in productyear_2_count.items() if k[1]==year}
+    sorted_product_by_year = {k: v for k,v in sorted(product_2_year.items(), key=lambda item: item[1], reverse=True)}
+    for k, _ in list(sorted_product_by_year.items())[:10]:
+        print("%s\t%s" % (year, k))

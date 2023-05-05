@@ -2,28 +2,21 @@
 """reducer2.py"""
 import sys
 
-word_2_count = {}
-i=0
+yearproductidword_2_count = {}
+
 for line in sys.stdin:
 
     line = line.strip()
     
-    current_word, one = line.split("\t")
+    year, product_id, word = line.split("\t")
 
-    try:
-        one = int(one)
-    except ValueError:
-        # count was not a number, so
-        # silently ignore/discard this line
-        continue
+    if (year, product_id, word) not in yearproductidword_2_count:
+        yearproductidword_2_count[(year, product_id, word)] = 0
 
-    # initialize words that were not seen before with 0
-    if current_word not in word_2_count:
-        word_2_count[current_word] = 0
+    yearproductidword_2_count[(year, product_id, word)] += 1
 
-    word_2_count[current_word] += 1
-
-sorted_word_2_count = dict(sorted(word_2_count.items(),key=lambda x: x[1],reverse=True)[:10])
-
-for word in sorted_word_2_count:
-    print("%s\t%i" % (word, word_2_count[word]))
+for (year, product_id) in set((key[0], key[1]) for key in yearproductidword_2_count.keys()):
+    word_2_yearproductid = {k[2]: v for k, v in yearproductidword_2_count.items() if k[0]==year and k[1]==product_id}
+    sorted_word_by_year = {k: v for k,v in sorted(word_2_yearproductid.items(), key=lambda item: item[1], reverse=True)}
+    for k, v in list(sorted_word_by_year.items())[:5]:
+        print("%s, %s, %s\t%i" % (year, product_id, k, v))
