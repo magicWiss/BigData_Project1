@@ -4,12 +4,12 @@ $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar \
 -mapper codes/mapper.py \
 -reducer codes/reducer.py \
 -input /prog1/Dataset/Rev_Parsed.csv \
--output /prog1/job2/output/mr1 \
-| \
-hdfs dfs -cat /prog1/job2/output/mr1/* > output.txt \
-| \
-hdfs dfs -put output.txt > /prog1/job2/output/mr1/output.txt \
-| \
+-output /prog1/job2/output/mr1 
+
+$HADOOP_HOME/bin/hdfs dfs -cat /prog1/job2/output/mr1/* > output.txt
+
+$HADOOP_HOME/bin/hdfs dfs -put output.txt /prog1/job2/output/mr1/
+
 $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/streaming/hadoop-streaming-3.3.4.jar \
 -reducer codes/reducer2.py \
 -input /prog1/Dataset/Rev_Parsed.csv \
