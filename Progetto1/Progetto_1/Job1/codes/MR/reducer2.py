@@ -8,7 +8,9 @@ for line in sys.stdin:
 
     line = line.strip()
     
-    year, product_id, word = line.split("\t")
+    year_product_id, word = line.split("\t")
+
+    year, product_id = year_product_id.split(",")
 
     if (year, product_id, word) not in yearproductidword_2_count:
         yearproductidword_2_count[(year, product_id, word)] = 0

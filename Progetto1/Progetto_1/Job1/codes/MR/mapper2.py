@@ -36,4 +36,4 @@ for line in sys.stdin:
         for word in text.split(" "):
             word = word.strip()
             if len(word)>=4:
-                print("%s\t%s\t%s" %(year, id, word))
+                print("%s,%s\t%s" %(year, id, word))
