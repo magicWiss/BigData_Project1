@@ -3,7 +3,7 @@ l’apprezzamento di ogni utente è ottenuto dalla media dell’utilità (rappor
 e HelpfulnessDenominator) delle recensioni che hanno scritto, indicando per ogni utente il loro
 apprezzamento.
 
-LOGICA
+LOGICA MAP REDUCE
 #Job 2
 ## Mapper
     il mapper genera per ogni entry un tripla (userId,value)
@@ -11,4 +11,12 @@ LOGICA
     lo shuffle and sort aggrega su userId
 #REDUCER
     il reducer calcola la media dei value e ordina stampando al terminale
+
+
+LOGICA HIVE
+
+Selezione dell'utente e del valore finale ad esso asscociato (AVG(SUM(col1,col2))) as valore dove col1,col2 sono HelpfulnessNumerator,HelpfulnessDenominator
+
+Aggregazione su userId
+Order By valore DESC
 
