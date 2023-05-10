@@ -26,24 +26,43 @@ BigData_Project1|
                                         |
                                         |_Dataset
                                                 |
+                                                |_TestDataset|
+                                                             |_Test_k_[0.1,0.3,0.5,0.7,1,1.3,1.5,1.7,2].csv (dataset per test di scalabilità)
+                                                |
                                                 |_Review.csv (oringinal dataset)
                                                 |
                                                 |_Rev_Parsed.csv (parsed dataset)
                                         |
+                                        |__Enrichment
+                                                    |
+                                                    |_enrich_data.ipynb (notebook per la creazione di dataset aventi grandezze distinte rispetto all'originale)
+                                        
+                                        
                                         |__Exploration
                                                     |
                                                     |_exploration.ipynb (esplorazione del dataset)
                                                     |
                                                     |__testing.ipynb (test del parsing)
                                         |
-                                        |__Job1_____
-                                                    |
-                                                    |__codes (mappers and reducers)
-                                                            |
-                                                            |_output1:output prima coppia map-reduce
+                                        |__Job2_____
+                                                    |__HIVE
+                                                           |__output: cartella di memorizzazione della tabella output del job Hive
+                                                           |
+                                                           |__comandi.hql: interrogazoni hql usate nel job
+                                                           |
+                                                           |__inptu_test.txt: file di test
+                                                           |
+                                                           |__test.ipynb: notebook di tes
+
+                                                    |__MR__|
+                                                           |_codes: codici map e reduce usati nel job
+                                                           |
+                                                            |_output1: output prima coppia map-reduce
                                                             |_output2: output seconda coppia map-reduce
-                                                    |        
-                                                    |__test  (test locale dei mapper e reducers)
+                                                            |        
+                                                            |__test  (test locale dei mapper e reducers)
+                                                    |
+                                                    |__plots: cartella per i plot sull'analisi del risultato
                                         |
                                         |__Utils____
                                                     |
