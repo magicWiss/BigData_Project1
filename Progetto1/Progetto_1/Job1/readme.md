@@ -16,7 +16,8 @@ Un job che sia in grado di generare, per ciascun anno, i 10 prodotti che hanno r
         -input /prog1/Dataset/Rev_Parsed.csv \
         -output /prog1/job1/output/mr2 \
         -mapper codes/MR/mapper2.py \
-        --cacheFile '/prog1/job1/output/mr1/output.txt#output'
+        --cacheFile '/prog1/job1/output/mr1/output.txt#output' && \
+        $HADOOP_HOME/bin/hdfs dfs -cat /prog1/job1/output/mr2/* > output_finale.txt
 
     Vengono eseguiti due job MapReduce in maniera sequenziale. Il primo produce una lista di ProductId - year che il secondo job utilizzerà per filtrare le review di interesse.
 

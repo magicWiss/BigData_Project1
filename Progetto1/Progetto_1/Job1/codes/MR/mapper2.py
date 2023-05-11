@@ -7,7 +7,7 @@ PRODUCT_ID = 1
 TIME = 7
 TEXT = 9
 
-id_list = set()
+yearid_list = set()
 
 
 # Read in the output file and store the relevant data in id_list
@@ -15,24 +15,25 @@ with open("output.txt", "r") as f:
     for line in f:
         line = line.strip()
         fields = line.split("\t")
+        year = fields[0]
         id = fields[1]
-        id_list.add(id)
+        yearid_list.add((year, id))
 
 for line in sys.stdin:
     line=line.strip()
     fields=line.split(",")
 
     id = fields[PRODUCT_ID]
+        
+    try:
+        unix_time = float(fields[TIME])
+        year = datetime.datetime.utcfromtimestamp(unix_time).strftime('%Y')
+    except:
+        continue
 
-    if id in id_list:
+    if (year, id) in yearid_list:
         text = fields[TEXT]
-
-        try:
-            unix_time = float(fields[TIME])
-            year = datetime.datetime.utcfromtimestamp(unix_time).strftime('%Y')
-        except:
-            continue
-
+        
         for word in text.split(" "):
             word = word.strip()
             if len(word)>=4:
