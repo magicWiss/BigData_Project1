@@ -30,3 +30,10 @@ Un job che sia in grado di generare, per ciascun anno, i 10 prodotti che hanno r
               --master local \
               codes/SPARKSQL/job1.py \
               --input_path file:///home/federico/BD/BigData_Project1/Progetto1/Progetto_1/Dataset/Rev_Parsed.csv
+
+ -  ## Spark Core
+       $SPARK_HOME/bin/spark-submit \
+              --master local \
+              codes/SPARK/job1.py \
+              --input_path hdfs:///prog1/Dataset/Rev_Parsed.csv \
+              --output_path hdfs:///prog1/job1/output/SPARK
