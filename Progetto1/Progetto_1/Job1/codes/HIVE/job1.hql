@@ -39,7 +39,7 @@ CREATE TABLE top_words_per_product_per_year AS (SELECT year, ProductId, word, co
 
 SELECT tp.year, tp.ProductId, tw.word, tw.cont_words
 FROM top_reviewed_products_per_year tp JOIN top_words_per_product_per_year tw
-ON tp.year == tw.year AND tp.ProductId ==tw.ProductId;
+ON tp.year == tw.year AND tp.ProductId == tw.ProductId;
 
 
 DROP TABLE reviews;
