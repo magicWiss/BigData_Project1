@@ -1,11 +1,10 @@
-
 DROP TABLE reviews;
 DROP TABLE reviews_with_year;
 DROP TABLE words_product_per_year;
 DROP TABLE top_reviewed_products_per_year;
-DROP TABLE words_per_product_per_year;
 DROP TABLE top_words_per_product_per_year;
-CREATE TABLE IF NOT EXISTS reviews (Id STRING, ProductId STRING, UserId STRING, ProfileName STRING, HelpfulnessNumerator STRING, HelpfulnessDenominator STRING, Score STRING, Time INT, Summary STRING, Text STRING)
+
+CREATE TABLE reviews (Id STRING, ProductId STRING, UserId STRING, ProfileName STRING, HelpfulnessNumerator STRING, HelpfulnessDenominator STRING, Score STRING, Time INT, Summary STRING, Text STRING)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 TBLPROPERTIES ("skip.header.line.count"="1");
@@ -38,15 +37,13 @@ CREATE TABLE top_words_per_product_per_year AS (SELECT year, ProductId, word, co
     GROUP BY year, ProductId, word
 ) x WHERE row_num <= 5);
 
--- SELECT year, ProductId, word, cont_words 
--- FROM top_words_per_product_per_year
--- WHERE year = 2011 AND ProductId = 'B0090X8IPM' AND word = 'coffee';
-
 SELECT tp.year, tp.ProductId, tw.word, tw.cont_words
 FROM top_reviewed_products_per_year tp JOIN top_words_per_product_per_year tw
-ON tp.year == tw.year AND tp.ProductId ==tw.ProductId;
+ON tp.year == tw.year AND tp.ProductId == tw.ProductId;
+
 
 DROP TABLE reviews;
 DROP TABLE reviews_with_year;
-DROP TABLE reviews_per_product_per_year;
-DROP TABLE reviews_per_product_per_year_with_words;
+DROP TABLE words_product_per_year;
+DROP TABLE top_reviewed_products_per_year;
+DROP TABLE top_words_per_product_per_year;
