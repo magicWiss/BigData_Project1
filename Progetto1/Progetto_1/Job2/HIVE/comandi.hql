@@ -23,7 +23,6 @@ LOAD DATA LOCAL INPATH '/home/matteowissel/Universita/Bigdata/Progetto1_git/BigD
 CREATE TABLE ClassificaJob2 (UserId FLOAT, Score FLOAT);
 Query
 
-Prova 1
-INSERT INTO ClassificaJob2 SELECT UserId, COALESCE(AVG(HelpfulnessNumerator/HelpfulnessDenominator),0) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM reviews) subquery GROUP BY UserId ORDER BY avg_ratio DESC;
+INSERT INTO Classjob2 SELECT UserId, COALESCE(SUM(HelpfulnessNumerator/HelpfulnessDenominator),0)/COUNT(*) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM reviews) subquery GROUP BY UserId ORDER BY avg_ratio DESC;
 
-INSERT INTO Classjob2 SELECT UserId, COALESCE(AVG(HelpfulnessNumerator/HelpfulnessDenominator),0) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM reviews) subquery GROUP BY UserId ORDER BY avg_ratio DESC;
+INSERT OVERWRITE LOCAL DIRECTORY '/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job2/HIVE/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT * FROM your_table;

@@ -19,4 +19,5 @@ Selezione dell'utente e del valore finale ad esso asscociato (AVG(SUM(col1,col2)
 
 Aggregazione su userId
 Order By valore DESC
+NSERT INTO Classjob2 SELECT UserId, COALESCE(SUM(HelpfulnessNumerator/HelpfulnessDenominator),0)/COUNT(*) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM reviews) subquery GROUP BY UserId ORDER BY avg_ratio DESC;
 

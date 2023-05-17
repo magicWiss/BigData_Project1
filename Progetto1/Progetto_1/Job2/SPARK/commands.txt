@@ -1,0 +1,2 @@
+$SPARK_HOME/bin/spark-submit --master local /home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job2/SPARK/SPARKSQL.py --input_path file:///home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Dataset/Rev_Parsed.csv --output_path file:///home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job2/SPARK/output
+
