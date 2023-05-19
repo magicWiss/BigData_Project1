@@ -1,0 +1,58 @@
+
+job2
+real	0m40,339s
+real	0m40,729s
+real	0m43,746s
+real	0m45,957s
+real	0m50,375s
+real	0m57,766s
+real	0m62,777s
+real	0m70,765s
+real	0m75,734s
+
+job 1
+
+real	0m40,496s
+
+
+
+real	0m55,580s
+
+
+
+real	1m5,187s
+
+
+
+real	1m19,261s
+
+
+
+
+
+real	1m35,070s
+
+
+
+real	1m52,103s
+
+
+
+real	1m59,950s
+
+
+
+real	2m12,162s
+
+
+
+real	2m20,862s
+
+
+
+
+
+
+
+
+

@@ -2,23 +2,31 @@
 """spark application"""
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import avg, when
+import argparse
+
+# create parser and set its arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_path", type=str, help="Input file path")
+parser.add_argument("--output_path", type=str, help="Output folder path")
+
+# parse arguments
+args = parser.parse_args()
+input_filepath, output_filepath = args.input_path, args.output_path
 
 
-input_path="/root/prog1/Dataset/Rev_Parsed.csv"
-output_path="/root/prog1/job1/SPARK_SQL/output/output_SPARK_SQL.csv"
 columns=["UserId","HelpfulnessNumerator","HelpfulnessDenominator"]
 # Create a SparkSession
 spark = SparkSession.builder.appName("UserAvgRatio").getOrCreate()
 
 # Read the CSV file into a DataFrame
-df = spark.read.csv(input_path, header=True).cache()
+df = spark.read.csv(input_filepath, header=True).cache()
 
 df.createOrReplaceTempView('data')
 # Apply the necessary transformations
 result = spark.sql("SELECT UserId, COALESCE(SUM(HelpfulnessNumerator/HelpfulnessDenominator),0)/COUNT(*) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM data) subquery GROUP BY UserId ORDER BY avg_ratio DESC;")
 
 
-result.write.csv(output_path, header=True)
+result.write.csv(output_filepath, header=True)
 # Show the result
 result.show()
 

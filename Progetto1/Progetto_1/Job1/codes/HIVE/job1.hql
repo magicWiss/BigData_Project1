@@ -9,7 +9,7 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 TBLPROPERTIES ("skip.header.line.count"="1");
 
-LOAD DATA LOCAL INPATH 'BD/BigData_Project1/Progetto1/Progetto_1/Dataset/Rev_Parsed.csv'
+LOAD DATA LOCAL INPATH '/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Dataset/TestDataset/Test_k_2.csv'
 							OVERWRITE INTO TABLE reviews;
 
 CREATE TABLE reviews_with_year AS (

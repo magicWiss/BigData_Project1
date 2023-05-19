@@ -1,0 +1,76 @@
+job1
+
+real	0m28,374s
+
+
+
+real	0m41,220s
+	
+
+
+real	0m45,507s
+	
+
+real	0m53,927s
+	
+
+real	1m0,502s
+
+ 
+real	1m6,997s
+
+
+
+real	1m12,927s
+
+
+real	1m19,662s
+
+
+real	1m26,289s
+
+
+
+
+
+
+
+
+job2
+
+
+
+real	0m8,670s
+
+
+
+real	0m8,763s
+	
+
+
+real	0m8,605s
+	
+
+real	0m8,744s
+	
+
+real	0m8,992s
+
+ 
+real	0m9,059s
+
+
+
+real	0m9,632s
+
+
+real	0m9,723s
+
+
+real	0m9,838s
+
+
+
+
+
+

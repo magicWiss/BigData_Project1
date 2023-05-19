@@ -1,0 +1,96 @@
+job2
+test1
+real	0m3,058s
+user	0m6,495s
+sys	0m0,371s
+
+test 2
+real	0m3,921s
+user	0m4,278s
+sys	0m0,271s
+
+test 3
+real	0m4,065s
+user	0m6,239s
+sys	0m0,440s
+
+
+test 4
+real	0m5,461s
+user	0m22,375s
+sys	0m1,162s
+
+test 5
+real	0m5,770s
+user	0m24,142s
+sys	0m1,298s
+
+test 6
+real	0m6,018s
+user	0m26,332s
+sys	0m1,537s
+
+test 7
+real	0m6,861s
+user	0m25,366s
+sys	0m1,524s
+
+test 8
+real	0m7,267s
+user	0m26,396s
+sys	0m1,625s
+
+test 9
+real	0m7,698s
+user	0m27,586s
+sys	0m1,688s
+
+
+
+
+
+job 1
+test 1
+real	0m5,650s
+user	0m24,980s
+sys	0m1,153s
+
+test2
+real	0m5,798s
+user	0m27,872s
+sys	0m1,225s
+
+test3
+real	0m6,739s
+user	0m28,901s
+sys	0m1,381s
+
+test4
+real	0m7,889s
+user	0m30,479s
+sys	0m1,305s
+
+test5
+real	0m8,955s
+user	0m32,044s
+sys	0m1,557s
+
+test 6
+real	0m9,738s
+user	0m32,250s
+sys	0m1,536s
+
+test 7
+real	0m11,674s
+user	0m34,262s
+sys	0m1,594s
+
+test 8
+real	0m11,753s
+user	0m34,338s
+sys	0m1,785s
+
+test 9
+real	0m12,765s
+user	0m35,604s
+sys	0m1,732s
