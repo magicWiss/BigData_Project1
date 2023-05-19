@@ -1,16 +1,16 @@
 {
-    "mapper1":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/MR/mapper.py",
-    "reducer1":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/MR/reducer.py",
-    "mapper2":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/MR/mapper2.py",
-    "reducer2":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job1/codes/MR/reducer2.py",
+    "mapper1":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR/mapper.py",
+    "reducer1":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR/reducer.py",
+    "mapper2":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR/mapper2.py",
+    "reducer2":"/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR/reducer2.py",
   
 
     
-    "hdfs_input1":"/root/prog1/job1/TEST/test9/ds.csv",
-    "hdfs_output1":"/root/prog1/job1/TEST/test9/output",
-    "hdfs_input2":"/root/prog1/job1/TEST/test9/output.txt",
-    "move_out_file":"/root/prog1/job1/TEST/test9/output/part-00000",
-    "hdfs_output2":"/root/prog1/job1/TEST/test9/output",
+    "hdfs_input1":"/root/prog1/Dataset/Rev_Parsed.csv",
+    "hdfs_output1":"/root/prog1/job3/output",
+    "hdfs_input2":"/root/prog1/job3/MR1.txt",
+    "move_out_file":"/root/prog1/job3/output/part-00000",
+    "hdfs_output2":"/root/prog1/job3/output",
     
     "output_commands_path":"BigData_Project1/Progetto1/Progetto_1/Utils/command.txt"
 

@@ -1,0 +1,9 @@
+f.write("%s\t  %s\n" %(str(group_to_products[k]),str(list(k))))
+
+real	2m40,213s
+user	2m45,554s
+sys	0m0,475s
+
+real	2m23,143s
+user	2m28,034s
+sys	0m0,480s
