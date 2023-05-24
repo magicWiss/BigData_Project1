@@ -1,12 +1,13 @@
-CREATE TABLE reviews (Id INTEGER,ProductId STRING,UserId STRING,ProfileName STRING,HelpfulnessNumerator FLOAT,HelpfulnessDenominator FLOAT,Score FLOAT,Time INTEGER,Summary STRING,Text STRING,TimeCreatio)
+CREATE TABLE reviews (Id INTEGER,ProductId STRING,UserId STRING,ProfileName STRING,HelpfulnessNumerator FLOAT,HelpfulnessDenominator FLOAT,Score FLOAT,Tempo INTEGER,Summary STRING,Text STRING,TimeCreation STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
-LOAD DATA LOCAL INPATH '/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Dataset/TestDataset/Test_k_01.csv'
-                                OVERWRITE INTO TABLE reviews;
+LOAD DATA LOCAL INPATH '${hiveconf:inputpath}'
+				OVERWRITE INTO TABLE reviews;
 
 CREATE TABLE Classjob2 (UserId FLOAT, Score FLOAT);
 
-
 INSERT INTO Classjob2 SELECT UserId, COALESCE(SUM(HelpfulnessNumerator/HelpfulnessDenominator),0)/COUNT(*) AS avg_ratio FROM (SELECT UserId, HelpfulnessNumerator, CASE WHEN HelpfulnessDenominator=0 THEN 0 ELSE HelpfulnessDenominator END AS HelpfulnessDenominator FROM reviews) subquery GROUP BY UserId ORDER BY avg_ratio DESC;
+
+INSERT OVERWRITE LOCAL DIRECTORY '/home/hadoop/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT * FROM your_table;
 
 DROP TABLE reviews;
 DROP TABLE Classjob2;

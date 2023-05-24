@@ -24,10 +24,12 @@ time_to_date_udf = udf(time_to_date)
 # create parser and set its arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--input_path", type=str, help="Input file path")
+parser.add_argument("--output_path", type=str, help="Output file path")
 
 # parse arguments
 args = parser.parse_args()
 input_filepath = args.input_path
+output_filepath = args.output_path
 
 # initialize SparkSession with the proper configuration
 spark = SparkSession \
@@ -80,6 +82,6 @@ counts_df_with_row_number = counts_df.withColumn("row_num", row_number().over(wi
 top_10_word_per_productid_year = counts_df_with_row_number.filter("row_num <= 5").select("year", "product_id", "word", "count").orderBy("year", "product_id", "row_num")
 top_10_word_per_productid_year.show()
 
-top_10_word_per_productid_year.write.csv('/prog1/job1/output/SPARK/SPARKSQL.csv')
+top_10_word_per_productid_year.write.csv(output_filepath)
 
 spark.stop()
