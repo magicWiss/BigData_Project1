@@ -4,16 +4,16 @@ DROP TABLE words_product_per_year;
 DROP TABLE top_reviewed_products_per_year;
 DROP TABLE top_words_per_product_per_year;
 
-CREATE TABLE reviews (Id STRING, ProductId STRING, UserId STRING, ProfileName STRING, HelpfulnessNumerator STRING, HelpfulnessDenominator STRING, Score STRING, Time INT, Summary STRING, Text STRING)
+CREATE TABLE reviews (Id STRING, ProductId STRING, UserId STRING, ProfileName STRING, HelpfulnessNumerator STRING, HelpfulnessDenominator STRING, Score STRING, Tempo INT, Summary STRING, Text STRING)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 TBLPROPERTIES ("skip.header.line.count"="1");
 
-LOAD DATA LOCAL INPATH '/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Dataset/TestDataset/Test_k_2.csv'
+LOAD DATA LOCAL INPATH '${hiveconf:inputpath}'
 							OVERWRITE INTO TABLE reviews;
 
 CREATE TABLE reviews_with_year AS (
-    SELECT ProductId, from_unixtime(Time, 'yyyy') as year, Text
+    SELECT ProductId, from_unixtime(Tempo, 'yyyy') as year, Text
     FROM reviews);
 
 CREATE TABLE words_product_per_year AS (
