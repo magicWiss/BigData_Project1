@@ -45,7 +45,12 @@ with open(path_out_reducer,'w') as f:
             if inserted==0:
                 group_to_products[products_fs]=[user_id]
 
-    ordered_dict = dict(sorted(group_to_products.items(), key=lambda x: x[1][0][0]))   
+    ordered_dict = dict(sorted(group_to_products.items(), key=lambda x: x[1][0][0])) 
+    #filtraggio finale del risulato
+    filtered_groups={}
+    for k in group_to_products.keys():
+        if len(group_to_products[k])>=3:
+            filtered_groups[k]=group_to_products[k]  
     for k in ordered_dict:
             random_numboer=random.randint(0,10)
             if random_numboer==0:

@@ -6,7 +6,7 @@ import sys
 #Id,ProductId,UserId,ProfileName,HelpfulnessNumerator,HelpfulnessDenominator,Score,Time,Summary,Text,TimeCreation
 
 
-path_output_mapper="/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR/mapper2_test.txt"
+path_output_mapper="/home/matteowissel/Universita/Bigdata/Progetto1_git/BigData_Project1/Progetto1/Progetto_1/Job3/MR_test/mapper2_test.txt"
 index_line=0    #skip the headers
 USER_ID_COL=2
 PRODUCT_COL=1

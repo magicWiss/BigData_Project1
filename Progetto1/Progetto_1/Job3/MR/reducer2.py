@@ -44,11 +44,20 @@ for line in sys.stdin:
 
             if inserted==0:
                 group_to_products[products_fs]=[user_id]
-        
-for k in group_to_products:
+
+#filtraggio finale del risulato
+filtered_groups={}
+for k in group_to_products.keys():
+    if len(group_to_products[k])>=2:
+         filtered_groups[k]=group_to_products[k]
+
+     
+
+ordered_dict = dict(sorted(filtered_groups.items(), key=lambda x: x[1][0][0]))       
+for k in ordered_dict:
             
         
-            print("%s\t  %s" %(str(group_to_products[k]),str(list(k))))
+            print("%s\t  %s" %(str(ordered_dict[k]),str(list(k))))
 
     
 
