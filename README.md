@@ -64,6 +64,21 @@ BigData_Project1|
                                                     |
                                                     |__plots: cartella per i plot sull'analisi del risultato
                                         |
+                                        |
+                                        |__Job 3_
+                                                |
+                                                |__MR__: 
+                                                        |
+                                                        |_Analytics: analisi dei risultati e greazione grafo
+                                                        |
+                                                        |_codici MR
+                                                |__MR_test: codici di test MR
+                                        |
+                                        |
+                                        |__Tempi_
+                                                |
+                                                |_Logica per l'analisi dei tempi di esecuzione
+                                        |
                                         |__Utils____
                                                     |
                                                     |__command.txt (genera i comandi linux per l'esecuzione del job)
